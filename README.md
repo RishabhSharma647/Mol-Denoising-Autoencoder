@@ -24,5 +24,34 @@ This iteration of the DAE uses one hot encoding to feauturize noisy input SMILES
 
 ### Dataset
 
+The original dataset is a subset of one of the [ChEMBL](https://www.ebi.ac.uk/chembl/) datasets of drug-like molecules. The noisy dataset was curated using a mixture of manual tuning (character displacement to structurally and chemically invalidate SMILES string) and the chemically invalid SMILES outputs of a generative model (RBM) - generated using originals as input seeds. 
 
-### Workflow
+### DAE example
+
+```python
+noisy_invalid_SMILES = smiles_noisy[1090]
+
+noisy_invalid_SMILES
+[out]: '=C(OO)CC1CCC(CC1)c2ccc(cc2)c3ccc4nc(cn4c3)C(=Nc5cc(F)c(F)c(F)c5)O'
+```
+
+```python
+# Checking chemical validity of SMILES using rdkit function
+dae_process.check_SMILES(noisy_invalid_SMILES)
+[out]: False
+```
+
+```python
+# Input noisy invalid SMILES sample to DAE
+DAE_denoised_output_SMILES = DAE_Denoised_SMILES(noisy_invalid_SMILES)
+
+DAE_denoised_output_SMILES
+[out]: 'OC(=O)CC1CCC(CC1)c2ccc(cc2)c3ccc4nc(cn4c3)C(=Nc5cc(F)c(F)c(F)c5)O'
+```
+
+```python
+# Check chemical validity of DAE output SMILES
+dae_process.check_SMILES(DAE_denoised_output_SMILES)
+[out]: True
+```
+
