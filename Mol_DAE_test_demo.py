@@ -46,7 +46,7 @@ def DAE_Denoised_SMILES(noise_smiles):
 
 """ Test function on sample noisy and invalid SMILES molecules """
     
-noisy_invalid_SMILES = smiles_noisy[1090] # '=C(OO)CC1CCC(CC1)c2ccc(cc2)c3ccc4nc(cn4c3)C(=Nc5cc(F)c(F)c(F)c5)O 
+noisy_invalid_SMILES = smiles_noisy[1090] # '=C(OO)CC1CCC(CC1)c2ccc(cc2)c3ccc4nc(cn4c3)C(=Nc5cc(F)c(F)c(F)c5)O'
 
 # Check chemical validity of SMILES using rdkit function
 dae_process.check_SMILES(noisy_invalid_SMILES) # False
