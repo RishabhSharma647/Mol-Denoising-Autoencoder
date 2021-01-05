@@ -29,6 +29,7 @@ The original dataset is a subset of one of the [ChEMBL](https://www.ebi.ac.uk/ch
 ### DAE example
 
 ```python
+# Pick a noisy SMILES example
 noisy_invalid_SMILES = smiles_noisy[1090]
 
 noisy_invalid_SMILES
