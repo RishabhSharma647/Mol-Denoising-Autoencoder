@@ -20,7 +20,7 @@ This iteration of the DAE uses one hot encoding to feauturize noisy input SMILES
 
 ![](images/DAE_img1.png)
 
-![](images/DAE_img2.png) 
+![](images/DAE_img2.png)  
 
 ### Dataset
 
