@@ -56,7 +56,7 @@ dae_process.check_SMILES(DAE_denoised_output_SMILES)
 [out]: True
 ```
 
-### For training, create 'saved_nets' folder 
+### For training, create 'saved_nets' folder  
 ```python
 python Mol_DAE_train.py
 ```
