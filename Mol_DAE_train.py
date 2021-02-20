@@ -53,9 +53,9 @@ input_dim = max_smiles_len*len(index_to_char) # 3630
 # Define Denoising Autoencoder
 DAE = tf.keras.Sequential(
         [
-           layers.Dense(hidden_dim, activation = 'sigmoid', name = 'hidden_1'),
-           layers.Dense(compressed_dim, activation = 'sigmoid', name = 'hidden_2_bottleneck'),
-           layers.Dense(hidden_dim, activation = 'sigmoid', name = 'hidden_3'),
+           layers.Dense(hidden_dim, activation = 'tanh', name = 'hidden_1'),
+           layers.Dense(compressed_dim, activation = 'tanh', name = 'hidden_2_bottleneck'),
+           layers.Dense(hidden_dim, activation = 'tanh', name = 'hidden_3'),
            layers.Dense(input_dim, activation = 'sigmoid', name = 'output_denoised_reconstruction'),
         ]
 )
@@ -77,5 +77,3 @@ DAE.fit(X_noisy, X,
           callbacks = [checkpoint],
           validation_split = .15,
           shuffle = True)
-
-
